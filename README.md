@@ -15,6 +15,8 @@ Then link the library with the native platform:
 
 $ react-native link react-native-camera
 
+Follow https://react-native-community.github.io/react-native-camera/docs/installation
+
 - next installation:
 
 $ npm install --save react-native-qrcode-scanner
