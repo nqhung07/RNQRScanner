@@ -49,6 +49,9 @@ $ yarn add react-navigation
 
 $ yarn add react-native-reanimated react-native-gesture-handler react-native-screens@^1.0.0-alpha.23
 
-
-
-
+* Add android/build.gradle
+buildscript {
+    ext {
+       ...
+        supportLibVersion = "28.0.3"
+    }
