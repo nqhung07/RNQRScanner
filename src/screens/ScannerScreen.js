@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Dimensions, View } from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 
-export default class QRCodeScannerScreen extends Component {
+export default class ScannerScreen extends Component {
   onSuccess = async e => {
     // await this.props.navigation.navigate("QRCodeData", {
     //   data: e.data,
