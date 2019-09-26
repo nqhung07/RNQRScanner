@@ -1,5 +1,7 @@
 # RNQRScanner
 A mini App scan QR code
+# Reference:
+https://blog.hackajob.co/how-to-build-a-qrcode-reader-using-reactnative/
 
 - This App use the libraries bellow:
 
