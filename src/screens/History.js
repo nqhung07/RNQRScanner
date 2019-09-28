@@ -12,8 +12,7 @@ export default class History extends Component {
   }
   componentDidMount() {
     this.getDataStore();
-    console.log("dataSource: ", this.state.dataSource);
-    
+    console.log('dataSource: ', this.state.dataSource);
   }
   getDataStore = async () => {
     try {
@@ -22,8 +21,7 @@ export default class History extends Component {
       const currentValueObj = JSON.parse(currentValue);
       console.log('currentValue:', currentValueObj);
 
-      this.setState({dataSource: currentValueObj}) ;
-
+      this.setState({dataSource: currentValueObj});
     } catch {
       console.log('get data error');
     }
@@ -31,25 +29,27 @@ export default class History extends Component {
   removeValue = async () => {
     try {
       await AsyncStorage.removeItem('scandata');
-      this.setState({dataSource: []}) ;
+      this.setState({dataSource: []});
       console.log('Remove done');
-
     } catch (e) {
       console.log('Remove err');
     }
   };
 
-  renderItem = item => {
-        return (
-            <TouchableOpacity
-              style={styles.flatView}
-              onPress={ () => {this.props.navigation.navigate('HistoryDetail',{item:item})} }>
-              <Text style={styles.itemName}>Item: {item.data}</Text>
-            </TouchableOpacity>
-          );
-      }
+  renderItem = (item, index) => {
+    return (
+      <TouchableOpacity
+        style={styles.flatView}
+        onPress={() => {
+          this.props.navigation.navigate('HistoryDetail', {item: item});
+        }}>
+        <Text style={styles.itemName}>Item: {item.data}</Text>
+      </TouchableOpacity>
+    );
+  };
 
   render() {
+    var key = 0;
     return (
       <View>
         <TouchableOpacity
@@ -60,27 +60,25 @@ export default class History extends Component {
         </TouchableOpacity>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item}) => this.renderItem(item)}
-          keyExtractor={item => item.id}
-
+          renderItem={({item,index}) => this.renderItem(item, index)}
+          keyExtractor={(item, index) => `${index}`}
         />
-        
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'skyblue',
-    },
-    flatView: {
-        borderBottomColor: "steelblue",
-        borderBottomWidth: 2,
-        padding: 15
-    },
-    itemName: {
-        fontSize: 18,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: 'skyblue',
+  },
+  flatView: {
+    borderBottomColor: 'steelblue',
+    borderBottomWidth: 2,
+    padding: 15,
+  },
+  itemName: {
+    fontSize: 18,
+  },
 });
