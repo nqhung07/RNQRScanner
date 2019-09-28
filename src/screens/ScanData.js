@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 import {StackActions} from 'react-navigation';
+import Header from './header';
 
 export default class ScanData extends Component {
   constructor(props) {
@@ -29,8 +30,14 @@ export default class ScanData extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.state.qrCodeData}</Text>
-        <Button title={'Scan QRCode Again'} onPress={() => this.scanAgain()} />
+        <Header navigation={this.props.navigation} />
+        <View>
+          <Text style={styles.text}>{this.state.qrCodeData}</Text>
+          <Button
+            title={'Scan QRCode Again'}
+            onPress={() => this.scanAgain()}
+          />
+        </View>
       </View>
     );
   }
