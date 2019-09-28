@@ -9,7 +9,7 @@ export default class Scanner extends Component {
   onSuccess = async e => {
     console.log(e);
     await this.props.navigation.navigate('ScanData', {
-      data: e.data,
+      data: e,
       scanner: this.scanner,
     });
   };
