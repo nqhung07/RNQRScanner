@@ -16,10 +16,9 @@ export default class ScanData extends Component {
     const scanner = this.props.navigation.getParam('scanner', () => false);
 
     this.setState({qrCodeData: qrCodeData, scanner: scanner});
-    
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.state.scanner.reactivate();
   }
 
