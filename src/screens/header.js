@@ -10,12 +10,12 @@ export default class header extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={{}}>
         <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
           <Icon
             ios="ios-menu"
             android="md-menu"
-            style={{fontSize: 30, color: 'red'}}
+            style={{fontSize: 40, color: 'red'}}
           />
         </TouchableOpacity>
       </View>

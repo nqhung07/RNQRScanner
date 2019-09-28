@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, Dimensions, View} from 'react-native';
+import {StyleSheet, Dimensions, View, Text} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import Header from './header';
 
 export default class Scanner extends Component {
   constructor(props) {
@@ -25,6 +26,8 @@ export default class Scanner extends Component {
             this.scanner = elem;
           }}
           cameraStyle={{height: Dimensions.get('window').height}}
+          topViewStyle={{position: 'absolute', zIndex: 1}}
+          topContent={<Header navigation={this.props.navigation} />}
         />
       </View>
     );

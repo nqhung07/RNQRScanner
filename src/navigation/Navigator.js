@@ -7,6 +7,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import HistoryScreen from '../screens/History';
+import HistoryDetailScreen from '../screens/HistoryDetail'
 import ScannerScreen from '../screens/Scanner';
 import ScanDataScreen from '../screens/ScanData';
 import MenuScreen from '../screens/MenuLeft';
@@ -35,6 +36,12 @@ const StackScan = createStackNavigator(
       screen: HistoryScreen,
       navigationOptions: ({ navigation }) => ({
         header: null
+      })
+    },
+    HistoryDetail: {
+      screen: HistoryDetailScreen,
+      navigationOptions: ({ navigation }) => ({
+        // header: null
       })
     },
   },

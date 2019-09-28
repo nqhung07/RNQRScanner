@@ -43,7 +43,7 @@ export default class History extends Component {
         return (
             <TouchableOpacity
               style={styles.flatView}
-              onPress={ () => {} }>
+              onPress={ () => {this.props.navigation.navigate('HistoryDetail',{item:item})} }>
               <Text style={styles.itemName}>Item: {item.data}</Text>
             </TouchableOpacity>
           );
@@ -61,6 +61,7 @@ export default class History extends Component {
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => this.renderItem(item)}
+          keyExtractor={item => item.id}
 
         />
         
