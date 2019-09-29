@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Linking,
+  TouchableOpacity,
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import Header from './header';
@@ -72,7 +79,10 @@ export default class ScanData extends Component {
         />
         <View style={styles.textContainer}>
           <Text style={styles.text}>Type: {this.state.qrCodeData.type}</Text>
-          <Text style={styles.text}>Data: {this.state.qrCodeData.data}</Text>
+          <TouchableOpacity
+            onPress={() => Linking.openURL(this.state.qrCodeData.data)}>
+            <Text style={styles.text}>Data: {this.state.qrCodeData.data}</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );

@@ -7,7 +7,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import HistoryScreen from '../screens/History';
-import HistoryDetailScreen from '../screens/HistoryDetail'
+import HistoryDetailScreen from '../screens/HistoryDetail';
 import ScannerScreen from '../screens/Scanner';
 import ScanDataScreen from '../screens/ScanData';
 import MenuScreen from '../screens/MenuLeft';
@@ -22,27 +22,27 @@ const StackScan = createStackNavigator(
   {
     Scan: {
       screen: ScannerScreen,
-      navigationOptions: ({ navigation }) => ({
-        header: null
-      })
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
     },
     ScanData: {
       screen: ScanDataScreen,
-      navigationOptions: ({ navigation }) => ({
-        header: null
-      })
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
     },
     History: {
       screen: HistoryScreen,
-      navigationOptions: ({ navigation }) => ({
-        header: null
-      })
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
     },
     HistoryDetail: {
       screen: HistoryDetailScreen,
-      navigationOptions: ({ navigation }) => ({
-        header: null
-      })
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
     },
   },
   StackScanConfig,
@@ -52,9 +52,10 @@ const DrawerConfig = {
   contentComponent: ({navigation}) => {
     return <MenuScreen navigation={navigation} />;
   },
+  initialRouteName: 'StackScan',
   drawerWidth: WIDTH * 0.5,
   drawerType: 'slide',
-  overlayColor: '10%',
+  overlayColor: '50%',
 };
 
 const DrawerNavigator = createDrawerNavigator(
@@ -62,7 +63,6 @@ const DrawerNavigator = createDrawerNavigator(
     StackScan: {
       screen: StackScan,
     },
-    
   },
   DrawerConfig,
 );

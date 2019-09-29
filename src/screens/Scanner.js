@@ -14,6 +14,7 @@ export default class Scanner extends Component {
       scanner: this.scanner,
     });
   };
+ 
 
   render() {
     return (
