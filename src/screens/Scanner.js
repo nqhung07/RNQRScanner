@@ -27,7 +27,13 @@ export default class Scanner extends Component {
           }}
           cameraStyle={{height: Dimensions.get('window').height}}
           topViewStyle={{position: 'absolute', zIndex: 1}}
-          topContent={<Header navigation={this.props.navigation} />}
+          topContent={
+            <Header
+              navigation={this.props.navigation}
+              title="QRCode & BarCode Scan"
+              color = 'white'
+            />
+          }
         />
       </View>
     );

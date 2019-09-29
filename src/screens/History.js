@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Header from './header';
 
 export default class History extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ export default class History extends Component {
         onPress={() => {
           this.props.navigation.navigate('HistoryDetail', {item: item});
         }}>
+        <Text style={styles.itemName}>Type: {item.type}</Text>
         <Text style={styles.itemName}>Item: {item.data}</Text>
       </TouchableOpacity>
     );
@@ -52,15 +54,17 @@ export default class History extends Component {
     var key = 0;
     return (
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            this.removeValue();
-          }}>
-          <Text>Remove Items</Text>
-        </TouchableOpacity>
+        <Header
+          navigation={this.props.navigation}
+          title="History"
+          rightIcon="trash"
+          color="white"
+          background = "steelblue"
+          rightAction = {()=>this.removeValue()}
+        />
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item,index}) => this.renderItem(item, index)}
+          renderItem={({item, index}) => this.renderItem(item, index)}
           keyExtractor={(item, index) => `${index}`}
         />
       </View>
@@ -74,9 +78,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'skyblue',
   },
   flatView: {
-    borderBottomColor: 'steelblue',
-    borderBottomWidth: 2,
-    padding: 15,
+    paddingHorizontal:5,
+    paddingVertical:10,
+    marginHorizontal: 5,
+    marginVertical: 5,
+    backgroundColor: 'skyblue',
   },
   itemName: {
     fontSize: 18,

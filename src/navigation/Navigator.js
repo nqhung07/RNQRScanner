@@ -41,7 +41,7 @@ const StackScan = createStackNavigator(
     HistoryDetail: {
       screen: HistoryDetailScreen,
       navigationOptions: ({ navigation }) => ({
-        // header: null
+        header: null
       })
     },
   },
@@ -52,15 +52,9 @@ const DrawerConfig = {
   contentComponent: ({navigation}) => {
     return <MenuScreen navigation={navigation} />;
   },
-  initialRouteName: 'StackScan',
-  // drawerBackgroundColor: '#fbd',
-  drawerWidth: WIDTH * 0.7,
-  contentOptions: {
-    activeTintColor: '#f00',
-    activeBackgroundColor: '#6b52ae',
-  },
+  drawerWidth: WIDTH * 0.5,
   drawerType: 'slide',
-  overlayColor: '50%',
+  overlayColor: '10%',
 };
 
 const DrawerNavigator = createDrawerNavigator(

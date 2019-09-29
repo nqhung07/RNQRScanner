@@ -18,7 +18,7 @@ export default class ScanData extends Component {
     const CodeData = this.props.navigation.getParam('data', 'No data read');
     const scanner = this.props.navigation.getParam('scanner', () => false);
 
-    this.setState({qrCodeData: CodeData.data, scanner: scanner});
+    this.setState({qrCodeData: CodeData, scanner: scanner});
 
     this.SaveData(CodeData);
   }
@@ -63,13 +63,17 @@ export default class ScanData extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} />
-        <View>
-          <Text style={styles.text}>{this.state.qrCodeData}</Text>
-          <Button
-            title={'Scan QRCode Again'}
-            onPress={() => this.scanAgain()}
-          />
+        <Header
+          navigation={this.props.navigation}
+          title="Scan result"
+          rightIcon="camera"
+          color="white"
+          background="steelblue"
+          rightAction={() => this.scanAgain()}
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Type: {this.state.qrCodeData.type}</Text>
+          <Text style={styles.text}>Data: {this.state.qrCodeData.data}</Text>
         </View>
       </View>
     );
@@ -79,13 +83,17 @@ export default class ScanData extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   text: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: 'left',
     margin: 10,
   },
 });
