@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, FlatList, StyleSheet, SafeAreaView} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from './header';
 
@@ -53,7 +53,7 @@ export default class History extends Component {
   render() {
     var key = 0;
     return (
-      <View>
+      <SafeAreaView style ={styles.container}>
         <Header
           navigation={this.props.navigation}
           title="History"
@@ -67,7 +67,7 @@ export default class History extends Component {
           renderItem={({item, index}) => this.renderItem(item, index)}
           keyExtractor={(item, index) => `${index}`}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -75,13 +75,12 @@ export default class History extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'skyblue',
   },
   flatView: {
     paddingHorizontal:5,
     paddingVertical:10,
     marginHorizontal: 5,
-    marginVertical: 5,
+    marginVertical: 2,
     backgroundColor: 'skyblue',
   },
   itemName: {

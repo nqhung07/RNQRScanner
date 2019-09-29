@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Dimensions, View, Text} from 'react-native';
+import {StyleSheet, Dimensions, View, Text, SafeAreaView} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import Header from './header';
 
@@ -17,7 +17,7 @@ export default class Scanner extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <QRCodeScanner
           onRead={this.onSuccess}
           showMarker={true}
@@ -31,11 +31,11 @@ export default class Scanner extends Component {
             <Header
               navigation={this.props.navigation}
               title="QRCode & BarCode Scan"
-              color = 'white'
+              color="white"
             />
           }
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }

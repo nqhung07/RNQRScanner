@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
-import {StackActions} from 'react-navigation';
+import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import Header from './header';
@@ -62,7 +61,7 @@ export default class ScanData extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
           navigation={this.props.navigation}
           title="Scan result"
@@ -75,7 +74,7 @@ export default class ScanData extends Component {
           <Text style={styles.text}>Type: {this.state.qrCodeData.type}</Text>
           <Text style={styles.text}>Data: {this.state.qrCodeData.data}</Text>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }

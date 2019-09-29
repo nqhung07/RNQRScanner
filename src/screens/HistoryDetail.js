@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Linking} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Linking,
+  SafeAreaView,
+} from 'react-native';
 import {Icon} from 'native-base';
 
 export default class HistoryDetail extends Component {
@@ -17,7 +24,7 @@ export default class HistoryDetail extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Icon
@@ -41,7 +48,7 @@ export default class HistoryDetail extends Component {
             rawData: {this.state.CodeData.rawData}
           </Text>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
