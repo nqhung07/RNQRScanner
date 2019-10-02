@@ -9,6 +9,8 @@ https://blog.hackajob.co/how-to-build-a-qrcode-reader-using-reactnative/
 * react-navigation
 * react-native-camera
 
+# Android:
+
 First, install the react-native-camera library:
 
 $ npm install --save react-native-camera
@@ -59,3 +61,12 @@ buildscript {
        ...
         supportLibVersion = "28.0.3"
     }
+
+# IOS:
+$ git clone https://github.com/nqhung07/RNQRScanner.git
+$ cd RNQRScanner
+$ yarn install
+$ cd ios
+$ pod install
+$ cd ../
+$ react-native run-ios
