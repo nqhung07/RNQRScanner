@@ -64,9 +64,15 @@ buildscript {
 
 # IOS:
 $ git clone https://github.com/nqhung07/RNQRScanner.git
+
 $ cd RNQRScanner
+
 $ yarn install
+
 $ cd ios
+
 $ pod install
+
 $ cd ../
+
 $ react-native run-ios
